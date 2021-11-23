@@ -108,8 +108,21 @@ let row = element.parentElement.parentElement;
 row.cells[1].contentEditable = 'true';
 row.cells[2].contentEditable = 'true';
 row.cells[3].contentEditable = 'true';
-
 }
+
+function delete_student(table, element){
+let row = element.parentElement.parentElement;
+let STID = row.cells[0].innerHTML;
+var xmlhttp = new XMLHttpRequest();
+xmlhttp.onreadystatechange = function() {
+if (this.readyState == 4 && this.status == 200) {
+    table.deleteRow(row.rowIndex); // Record has been successfully deleted
+}
+};
+xmlhttp.open("GET", "deletestudent.php?STID="+STID, true);
+xmlhttp.send();
+}
+
 
         </script>
 </HTML>
