@@ -9,7 +9,7 @@ $Block = $_REQUEST["Block"];
 $Mark = $_REQUEST["Mark"];
 
  
-$sql = "UPDATE enrollment SET LID=?, Mark=? WHERE STID=?, MID=?, Block=?";
+$sql = "UPDATE enrollment SET LID=?, Mark=? WHERE STID=? and MID=? and  Block=?";
 if ($stmt = $conn->prepare($sql)) 
 $stmt->bind_param("idisi", $LID, $Mark, $STID, $MID, $Block);
 else
